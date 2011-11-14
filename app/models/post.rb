@@ -7,14 +7,17 @@ class Post
   include Redis::Search
   include Redis::Objects
   
-  STATE = {
-    :draft => 0,
-    :normal => 1
-  }
+  state_machine :state, :initial => :pending do
+    event :approve do
+      transition :pending => :approved
+    end
+    event :reject do
+      transition all => :rejected
+    end
+  end
   
   field :title, :type => String
   field :body, :type => String
-  field :state, :type => Integer, :default => STATE[:draft]
   field :tags, :type => Array, :default => []
   # 来源名称
   field :source
@@ -35,7 +38,7 @@ class Post
   
   validates_presence_of :title, :body, :tag_list
   
-  scope :normal, where(:state => STATE[:normal])
+  scope :normal, where(:state => :approved)
   scope :by_tag, Proc.new { |t| where(:tags => t) }
   
   before_save :split_tags
@@ -44,17 +47,8 @@ class Post
       self.tags = self.tag_list.split(/,|，/).collect { |tag| tag.strip }.uniq
     end
   end
-  
-  # 给下拉框用
+
   def self.state_collection
-    STATE.collect { |s| [s[0], s[1]]}
-  end
-  
-  def state_s
-    case self.state
-    when 0 then "<span class='label important'>草稿</span>"
-    else
-      "<span class='label success'>已审核</span>"
-    end
+    state_machine.states.map{|state| [human_attribute_name(state.name), state.name]}
   end
 end

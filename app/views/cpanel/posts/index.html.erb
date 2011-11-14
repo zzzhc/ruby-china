@@ -19,7 +19,7 @@
     <td><%= truncate(post.title,:length => 30) %></td>
     <td><%= post.user.login if post.user %></td>
     <td><%= l post.created_at,:format => :short %></td>
-    <td><%= raw post.state_s %></td>
+    <td><%= format_state post.state_name %></td>
     <td><%= link_to '修改', edit_cpanel_post_path(post) %>
     <%= link_to '删除', cpanel_post_path(post), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

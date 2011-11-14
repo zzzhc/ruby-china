@@ -33,6 +33,9 @@
         tag_list: 标签
         source: 来源
         source_url: 来源地址        
+        pending: "待审核"
+        approved: "通过"
+        rejected: "拒绝"
       page:
         slug: Slug
         title: 页面标题

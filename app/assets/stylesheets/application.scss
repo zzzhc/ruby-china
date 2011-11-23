@@ -1,6 +1,7 @@
 /*
  *= require bootstrap
  *= require jquery.jdialog
+ *= require wmd
  *= require wikistyle
  *= require_tree ./sprites/
  *= require_self
@@ -67,7 +68,7 @@ a.label:hover { text-decoration: none; color:#FFF;}
   margin:3px 0;
   color: #555;
 }
-#main h1 { font-size:14px; line-height:26px; font-weight:bold; text-align:right; color:#333; margin-bottom:10px; }
+#main .box > h1 { font-size:14px; line-height:26px; font-weight:bold; text-align:right; color:#333; margin-bottom:10px; }
 
 .topbar { position: static; margin-bottom:20px;}
 

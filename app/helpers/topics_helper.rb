@@ -2,14 +2,7 @@
 require 'rdiscount'
 module TopicsHelper
   def format_topic_body(text, options = {})
-    options[:title] = ''
-    options[:allow_image] = true
-    text = h(text)
-    text.gsub!( /\r\n?/, "\n" )
-    text.gsub!( /\n/, "<br>" )
-    text.gsub!(/```(<br>{0,}|\s{0,})(.+?)```(<br>{0,}|\s{0,})/im,'<pre><code>\2</code></pre>')
-    text.gsub!(/\[img\](http:\/\/.+?)\[\/img\]/i,'<img src="\1" alt="'+ h(options[:title]) +'" />') if options[:allow_image]
-    text = auto_link(text,:all, :target => '_blank', :rel => "nofollow")
+    text = RDiscount.new(text).to_html
     text.gsub!(/#([\d]+)楼\s/,'#<a href="#reply\1" class="at_floor" data-floor="\1" onclick="return Topics.hightlightReply(\1)">\1楼</a> ')
     link_mention_user!(text, options[:mentioned_users]) if options[:mentioned_users]
     return sanitize(text)

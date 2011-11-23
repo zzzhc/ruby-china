@@ -282,6 +282,8 @@ GEM
     warden (1.0.6)
       rack (>= 1.0)
     will_paginate (3.0.pre2)
+    wmd-rails (0.0.1)
+      rails (~> 3.1.1.rc1)
     xml-simple (1.1.0)
 
 PLATFORMS
@@ -329,3 +331,4 @@ DEPENDENCIES
   uglifier
   unicorn
   will_paginate (= 3.0.pre2)
+  wmd-rails

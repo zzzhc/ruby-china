@@ -7,4 +7,6 @@
 //= require jquery.jdialog
 //= require jquery.timeago
 //= require jquery.hotkeys
+//= require wmd
+//= require showdown
 //= require app

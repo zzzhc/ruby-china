@@ -87,4 +87,8 @@
   
 }
 
-
+.form-stacked { padding-left: 0; }
+.form-stacked .actions { margin-left: 0; }
+#topic_title,
+#editor-input { width: 670px; }
+#editor-preview { border: 2px dotted #CCC; margin-top: 10px; padding: 3px; }

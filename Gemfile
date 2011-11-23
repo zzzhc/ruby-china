@@ -52,6 +52,8 @@ gem "unicorn"
 # 用于组合小图片
 gem "sprite-factory", "1.4.1"
 gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
+# Markdown 编辑器
+gem 'wmd-rails'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.4"

@@ -46,7 +46,7 @@ window.Topics =
     else
       App.alert(msg,'#reply')
     $("#new_reply textarea").focus()
-    $('#btn_reply').button('reset')    
+    $('#btn_reply').button('reset')
     
 # pages ready
 $(document).ready ->
@@ -54,4 +54,9 @@ $(document).ready ->
     if $(el.target).val().trim().length > 0
       $("#reply form").submit()
     return false
-  
+
+  new WMDEditor(
+    input: "editor-input",
+    button_bar: "editor-button-bar",
+    preview: "editor-preview"
+  )

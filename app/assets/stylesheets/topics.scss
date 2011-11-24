@@ -71,7 +71,6 @@
 #replies .reply .body { line-height:180%; font-size:14px; text-overflow: ellipsis; word-wrap: break-word; }
 #replies .reply .body img { max-width:622px;}
 
-#reply.form textarea { width:578px; }
 
 .edit_tools { text-align:right; margin-bottom:3px;}
 
@@ -92,3 +91,7 @@
 #topic_title,
 #editor-input { width: 670px; }
 #editor-preview { border: 2px dotted #CCC; margin-top: 10px; padding: 3px; }
+#reply form {
+  .clearfix { margin-bottom: 18px; }
+  #editor-input { height: 180px; }
+}
